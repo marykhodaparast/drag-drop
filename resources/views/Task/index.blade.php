@@ -1,85 +1,43 @@
 @extends('layouts.app')
 
+@section('css')
+
+<style>
+    body {
+        background: #a5b5c5;
+        background: lightblue !important;
+    }
+
+    .box {
+        background: #fff;
+        border-radius: 4px;
+        padding-bottom: 100%;
+    }
+
+    .col-lg-2,
+    .col-md-3,
+    .col-xs-6 {
+        margin-top: 30px !important;
+    }
+
+</style>
+@endsection
 @section('content')
 <div class="container">
-    <h1>Pippo</h1>
-    <div class="row row-tile">
-        <div class="col-md-8 tile">
-            <div class="row row-tile text-white">
-                <div class="col-sm-3 col-xs-6 tile square ">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-                <div class="col-sm-3 col-xs-6 tile square">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 tile">
-            <div class="row row-tile">
-                <div class="col-md-12 col-sm-12 col-xs-12 tile rect_2x3 row-span-3 ">
-                    <div class="tile-content">
-                        Poppo
-                    </div>
-                </div>
+    <div class="row">
+        @foreach($tasks as $task)
+        <div class="col-lg-2 col-md-3 col-xs-6 text-center">
+            <div class="box">
+                <p>{{ $task->name }}</p>
             </div>
 
         </div>
+
+        @endforeach
+        
     </div>
 </div>
+
 
 
 @endsection
