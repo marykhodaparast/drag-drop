@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +19,8 @@ Route::get('/', function () {
 });
 
 //Task Management
-Route::group(['middleware' => 'auth', 'as' => 'tasks.'], function ($router) {
-    $router->resource('/', 'App\Http\Controllers\TaskController');
+Route::group(['middleware' => 'auth'], function ($router) {
+    Route::resource('tasks', TaskController::class);
 });
 
 Auth::routes();

@@ -52,15 +52,15 @@ class TaskController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Category\StoreCategoryRequest  $request
+     * @param  \App\Http\Requests\StoreTaskRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTaskRequest $request)
     {
         $data = $request->validated();
-        $task = Task::create($data);
+        Task::create($data);
 
-        return redirect()->back();
+        return redirect(route('tasks.index'));
     }
 
     /**
@@ -68,9 +68,13 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(int $id)
     {
-        return view('Task.edit');
+        $task = Task::findOrFail($id);
+
+        return view('Task.edit')->with([
+            'task' => $task
+        ]);
     }
 
     /**
@@ -86,6 +90,8 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
 
         $task->update($data);
+
+        return redirect(route('tasks.index'));
     }
 
     /**
@@ -99,5 +105,7 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
 
         $task->delete();
+
+        return redirect(route('tasks.index'));
     }
 }
