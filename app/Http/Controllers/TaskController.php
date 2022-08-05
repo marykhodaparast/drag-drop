@@ -16,7 +16,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::orderBy('id', 'desc')->get();
 
         return view('Task.index')->with([
             'tasks' => $tasks

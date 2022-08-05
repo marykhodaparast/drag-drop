@@ -26,11 +26,11 @@
 
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control mt-3" id="name" name="name" aria-describedby="name" placeholder="Enter name">
+                <input type="text" class="form-control mt-3" id="name" name="name" aria-describedby="name" placeholder="Enter name" value="{{old('name')}}">
             </div>
             <div class="form-group mt-3">
                 <label for="priority">Priority</label>
-                <input type="number" class="form-control" id="priority" name="priority" placeholder="Priority">
+                <input type="number" class="form-control" id="priority" name="priority" placeholder="Priority" value="{{old('priority')}}">
             </div>
             <button type="submit" class="btn btn-primary mt-3">Save</button>
         </form>
